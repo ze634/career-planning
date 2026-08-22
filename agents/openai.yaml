@@ -1,0 +1,3 @@
+interface:
+  display_name: "职业规划"
+  short_description: "生成多年职业规划 PDF"
