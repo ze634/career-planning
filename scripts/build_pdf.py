@@ -116,13 +116,8 @@ CSS = '''
 '''
 
 def find_node():
-    cands = [os.environ.get('NODE'),
-             r'C:\Users\灵泽\.ai-manager\runtimes\node\24.18.1\node.exe',
-             r'C:\Users\灵泽\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe']
-    for c in cands:
-        if c and os.path.exists(c):
-            return c
-    return shutil.which('node')
+    # 优先 NODE 环境变量，其次 PATH。仓库不内置任何个人/机器路径。
+    return os.environ.get('NODE') or shutil.which('node')
 
 def main():
     if len(sys.argv) < 3:

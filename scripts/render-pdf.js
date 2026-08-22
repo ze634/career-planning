@@ -20,10 +20,8 @@ function findPlaywright() {
     if (parent === dir) break;
     dir = parent;
   }
-  // 4) 兜底：作者机器已知路径（仅本机有效）
+  // 4) 兜底：PLAYWRIGHT_REQUIRE 已在步骤 2 处理；此处不再内置任何机器路径
   for (const c of [
-    'F:/DNM/bi/career-ops/node_modules/playwright',
-    'C:/Users/灵泽/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright',
   ]) {
     try { require.resolve(c); return c; } catch (e) {}
   }
